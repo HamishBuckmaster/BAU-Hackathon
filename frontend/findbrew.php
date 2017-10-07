@@ -108,7 +108,7 @@ require_login();
         <select class="form-control" placeholder="Search for...">
             <option value="">Select your brew</option>
             <option value="Carlton Draught">Carlton Draught</option>
-            <option value="Victorian Bitter">Victorian Bitter</option>
+            <option value="Victorian Bitter">Victoria Bitter</option>
             <option value="Carona">Carona</option>
             <option value="Melbourne Bitter">Melbourne Bitter</option>
             <option value="Pure Blonde">Pure Blonde</option>
@@ -152,7 +152,7 @@ require_login();
             <div class="col-xs-3 mr-2">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input id="barsbutton" type="checkbox" class="form-check-input" checked="true">
+                  <input id="barsbutton" type="checkbox" class="form-check-input">
                   Bars/Pubs
                 </label>
               </div>
@@ -160,8 +160,16 @@ require_login();
             <div class="col-xs-3 ml-2 mr-2">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input id="cafesbox"type="checkbox" class="form-check-input" checked="true">
+                  <input id="cafesbox" type="checkbox" class="form-check-input">
                   Cafés
+                </label>
+              </div>
+            </div>
+             <div class="col-xs-3 mr-2">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input id="barsbutton" type="checkbox" class="form-check-input">
+                  Bottle Shops
                 </label>
               </div>
             </div>
