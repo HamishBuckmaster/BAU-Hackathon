@@ -16,7 +16,7 @@ $id = @$_GET['id'];
 if(isset($id))
 {
     //get all data related to a specific customer ID
-    $query = 'SELECT * FROM `4 Sell In` WHERE `SKU ID`=?';
+    $query = 'SELECT * FROM `4_Sell_In` WHERE `SKU ID`=?';
     $stmt = mysqli_prepare($conn, $query);
 
 	mysqli_stmt_bind_param($stmt, "s", $id);
@@ -28,7 +28,7 @@ if(isset($id))
 else
 {
     // Select all the items in the database
-    $query = 'SELECT * FROM `4 Sell In`';
+    $query = 'SELECT * FROM `4_Sell_In`';
     $results = mysqli_query($conn, $query);
 }
 
