@@ -10,8 +10,27 @@ $conn = mysqli_connect($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_DATABASE);
 // Create an empty array to contain results
 $json_response = array();
 
-// Select all the items in the database
-$results = mysqli_query($conn, 'SELECT * FROM `4 Sell Out`');
+//get id if exists
+$id = @$_GET['id'];
+
+if(isset($id))
+{
+    //get all data related to a specific customer ID
+    $query = 'SELECT * FROM `4 Sell Out` WHERE `SKU ID`=?';
+    $stmt = mysqli_prepare($conn, $query);
+
+	mysqli_stmt_bind_param($stmt, "s", $id);
+
+	mysqli_stmt_execute($stmt);
+
+	$results = mysqli_stmt_get_result($stmt);
+}
+else
+{
+    // Select all the items in the database
+    $query = 'SELECT * FROM `4 Sell Out`';
+    $results = mysqli_query($conn, $query);
+}
 
 while($row = mysqli_fetch_assoc($results)) {
     // Add the raw contents of each row to the response
