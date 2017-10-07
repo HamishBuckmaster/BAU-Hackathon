@@ -153,7 +153,8 @@ require_login();
               <div class="form-check">
                 <label class="form-check-label">
                   <input id="barsbutton" type="checkbox" class="form-check-input" checked="true">
-                  Bars/Pubs
+                  <!-- Bars/Pubs -->
+                  Bars
                 </label>
               </div>
             </div>
@@ -161,7 +162,8 @@ require_login();
               <div class="form-check">
                 <label class="form-check-label">
                   <input id="cafesbox"type="checkbox" class="form-check-input" checked="true">
-                  Cafés
+                  <!-- Cafés -->
+                  Pubs
                 </label>
               </div>
             </div>
