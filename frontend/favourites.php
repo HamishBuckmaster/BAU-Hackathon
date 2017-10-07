@@ -29,7 +29,7 @@ require_login();
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.php">Beer n Buddies</a>
+    <a class="navbar-brand" href="index.php">Beer 'n' Buddies</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -139,6 +139,40 @@ require_login();
 
         <!-- Managing existing favourite brews -->
         <h3 class="mt-5">Current Favourites</h3>
+
+        <div class="panel panel-primary mt-2">
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <label class="mt-1">
+                  <h5>Victorian Bitter</h5>
+                </label>
+                <div class="pull-right action-buttons">
+                  <a href="http://www.jquery2dotnet.com" class="trash"><span class="fa fa-trash fa-2x mr-2"></span></a>
+                  <a href="http://www.jquery2dotnet.com" class="flag"><span class="fa fa-location-arrow fa-2x"></span></a>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <label class="mt-1">
+                  <h5>Corona</h5>
+                </label>
+                <div class="pull-right action-buttons">
+                  <a href="http://www.jquery2dotnet.com" class="trash"><span class="fa fa-trash fa-2x mr-2"></span></a>
+                  <a href="http://www.jquery2dotnet.com" class="flag"><span class="fa fa-location-arrow fa-2x"></span></a>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <label class="mt-1">
+                  <h5>Carlton Dry</h5>
+                </label>
+                <div class="pull-right action-buttons">
+                  <a href="http://www.jquery2dotnet.com" class="trash"><span class="fa fa-trash fa-2x mr-2"></span></a>
+                  <a href="http://www.jquery2dotnet.com" class="flag"><span class="fa fa-location-arrow fa-2x"></span></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
 
         <!-- /.container-fluid-->
         <!-- /.content-wrapper-->
