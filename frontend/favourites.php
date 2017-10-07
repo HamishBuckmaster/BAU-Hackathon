@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+require_once('../backend/includes/auth.php');
+
+// you have to be logged in to view this page
+require_login();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>BnB - Join Pub Crawl</title>
+  <title>BnB - Manage Favourites</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -21,44 +29,44 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Beer n Buddies</a>
+    <a class="navbar-brand" href="index.php">Beer n Buddies</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Home">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="index.php">
             <i class="fa fa-fw fa-home"></i>
             <span class="nav-link-text">Home</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="findbrew.html">
+          <a class="nav-link" href="findbrew.php">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Find a Brew</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="favourites.html">
+          <a class="nav-link" href="favourites.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">View Favourites</span>
           </a>
         </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="joinadventure.html">
+          <a class="nav-link" href="joinadventure.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Join Adventure</span>
           </a>
         </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="createadventure.html">
+          <a class="nav-link" href="createadventure.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Create Adventure</span>
           </a>
         </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="login.html">
+          <a class="nav-link"  href="logout_process.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Logout</span>
           </a>
@@ -81,76 +89,105 @@
   </nav>
   <div class="content-wrapper">
     <div class="container-fluid">
-            <div class="card-header"> <h1> Join a Adventure <h1> </div>
-      <!-- Icon Cards-->
+    <div class="card-header"> <h1> Manage Your Favourites <h1> </div>
+      <!-- Favourites information-->
+      <p></p>
+      <!-- Adding a new brew to your favourites list -->
+      <h3>Add New Favourite</h3>
+      <!-- Section for selecting the brew -->
+      <h4 class="mt-3">Brew:<h4>
+      <select class="form-control" placeholder="Search for...">
+          <option value="">Select your brew</option>
+          <option value="Carlton Draught">Carlton Draught</option>
+          <option value="Victorian Bitter">Victorian Bitter</option>
+          <option value="Carona">Carona</option>
+          <option value="Melbourne Bitter">Melbourne Bitter</option>
+          <option value="Pure Blonde">Pure Blonde</option>
+        </select>
+
+      <!-- Section for checking the bootle, can, tap -->
+      <h4 class="mt-3">Delivery</h4>
+      <div class="form-group">
+        <div class="row mt-3 ml-1">
+          <div class="col-xs-3 mr-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="bottlesbox" type="checkbox" class="form-check-input" checked="true">
+                Bottles
+              </label>
+            </div>
+          </div>
+          <div class="col-xs-3 ml-2 mr-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="cansbox" type="checkbox" class="form-check-input" checked="true">
+                Cans
+              </label>
+            </div>
+          </div>
+          <div class="col-xs-3 ml-2 mr-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="tapsbox" type="checkbox" class="form-check-input" checked="true">
+                Tap
+              </label>
+            </div>
+          </div>
+      </div>
+      <button class="btn btn-lg btn-primary">Add</button>
+
+    <!-- Managing existing favourite brews -->
+    <h3 class="mt-5">Current Favourites</h3>
+
+    <div class="container">
       <div class="row">
-        <div class="col-xl-6 col-sm-6 mb-3">
-          <div class="card text-white bg-primary o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-comments"></i>
-              </div>
-              <div class="mr-5">Search for your favourite brew!</div>
+        <div class="col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-body">
+              <ul class="list-group">
+                <li class="list-group-item">
+                    <label>
+                        Victorian Bitter
+                    </label>
+
+                    <div class="pull-right action-buttons">
+                        <a href="" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="http://www.jquery2dotnet.com" class="flag"><span class="glyphicon glyphicon-flag"></span></a>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox2" />
+                        <label for="checkbox2">
+                            Carlton Draught
+                        </label>
+                    </div>
+                   <div class="pull-right action-buttons">
+                        <a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="http://www.jquery2dotnet.com" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="http://www.jquery2dotnet.com" class="flag"><span class="glyphicon glyphicon-flag"></span></a>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox3" />
+                        <label for="checkbox3">
+                            Carona
+                        </label>
+                    </div>
+                    <div class="pull-right action-buttons">
+                        <a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="http://www.jquery2dotnet.com" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="http://www.jquery2dotnet.com" class="flag"><span class="glyphicon glyphicon-flag"></span></a>
+                    </div>
+                </li>
+              </ul>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-xl-6 col-sm-6 mb-3">
-          <div class="card text-white bg-warning o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-list"></i>
-              </div>
-              <div class="mr-5">Check out your favourites</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-xl-6 col-sm-6 mb-3">
-          <div class="card text-white bg-success o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-shopping-cart"></i>
-              </div>
-              <div class="mr-5">Join a pub crawl</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-xl-6 col-sm-6 mb-3">
-          <div class="card text-white bg-danger o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-support"></i>
-              </div>
-              <div class="mr-5">Create a Adventure</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
           </div>
         </div>
       </div>
+    </div>
+
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
@@ -177,7 +214,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary"  href="logout_process.php">Logout</a>
           </div>
         </div>
       </div>

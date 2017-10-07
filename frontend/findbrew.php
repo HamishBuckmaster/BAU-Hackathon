@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+require_once('../backend/includes/auth.php');
+
+// you have to be logged in to view this page
+require_login();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Beer N Buddies</title>
+  <title>BnB - Find Brew</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -21,44 +29,44 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Beer n Buddies</a>
+    <a class="navbar-brand" href="index.php">Beer n Buddies</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Home">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="index.php">
             <i class="fa fa-fw fa-home"></i>
             <span class="nav-link-text">Home</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="findbrew.html">
+          <a class="nav-link" href="findbrew.php">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Find a Brew</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="favourites.html">
+          <a class="nav-link" href="favourites.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">View Favourites</span>
           </a>
         </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="joinadventure.html">
+          <a class="nav-link" href="joinadventure.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Join Adventure</span>
           </a>
         </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="createadventure.html">
+          <a class="nav-link" href="createadventure.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Create Adventure</span>
           </a>
         </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="login.html">
+          <a class="nav-link"  href="logout_process.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Logout</span>
           </a>
@@ -81,60 +89,78 @@
   </nav>
   <div class="content-wrapper">
     <div class="container-fluid">
-      <div class="card-header"> <h1> Welcome INSERT NAME! <h1> </div>
-      <!-- Icon Cards-->
-      <div class="row">
-        <div class="col-xl-6 col-sm-6 mb-3">
-          <a href="findbrew.html" style="text-decoration:none">
-          <div class="card text-white bg-primary o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-comments"></i>
-              </div>
-              <div class="mr-5">Find a brew</div>
+      <div class="card-header"> <h1> Find a Brew <h1> </div>
+      <!-- Section for selecting the brew -->
+      <h3>Brew:<h3>
+      <select class="form-control" placeholder="Search for...">
+          <option value="">Select your brew</option>
+          <option value="Carlton Draught">Carlton Draught</option>
+          <option value="Victorian Bitter">Victorian Bitter</option>
+          <option value="Carona">Carona</option>
+          <option value="Melbourne Bitter">Melbourne Bitter</option>
+          <option value="Pure Blonde">Pure Blonde</option>
+        </select>
+
+      <!-- Section for checking the bootle, can, tap -->
+      <h3 class="mt-3">Delivery</h3>
+      <div class="form-group">
+        <div class="row mt-3 ml-1">
+          <div class="col-xs-3 mr-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="bottlesbox" type="checkbox" class="form-check-input" checked="true">
+                Bottles
+              </label>
             </div>
           </div>
-        </a>
-        </div>
-        <div class="col-xl-6 col-sm-6 mb-3">
-          <a href="favourites.html" style="text-decoration:none">
-          <div class="card text-white bg-warning o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-list"></i>
-              </div>
-              <div class="mr-5">Check out your favourites</div>
+          <div class="col-xs-3 ml-2 mr-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="cansbox" type="checkbox" class="form-check-input" checked="true">
+                Cans
+              </label>
             </div>
           </div>
-          </a>
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-xl-6 col-sm-6 mb-3">
-          <a href="joinpubcrawl.html" style="text-decoration:none">
-          <div class="card text-white bg-success o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-shopping-cart"></i>
-              </div>
-              <div class="mr-5">Join an Adventure</div>
+          <div class="col-xs-3 ml-2 mr-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="tapsbox" type="checkbox" class="form-check-input" checked="true">
+                Tap
+              </label>
             </div>
           </div>
-          </a>
-        </div>
-        <div class="col-xl-6 col-sm-6 mb-3">
-          <a href="createpubcrawl.html" style="text-decoration:none">
-          <div class="card text-white bg-danger o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-support"></i>
-              </div>
-              <div class="mr-5">Create a Adventure</div>
-            </div>
-          </div>
-          </a>
         </div>
       </div>
+
+      <!-- Section for establishment -->
+      <h3 class="mt-3">Establishment Type</h3>
+      <div class="form-group">
+        <div class="row mt-3 ml-1">
+          <div class="col-xs-3 mr-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="barsbutton" type="checkbox" class="form-check-input" checked="true">
+                Bars/Pubs
+              </label>
+            </div>
+          </div>
+          <div class="col-xs-3 ml-2 mr-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="cafesbox"type="checkbox" class="form-check-input" checked="true">
+                Cafés
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section for establishment -->
+      <h3 class="mt-3">Distance Range (Kilometers)</h3>
+      <div class="form-group">
+          <input type="text" class="form-control" id="distance">
+      </div>
+
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
@@ -161,7 +187,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary"  href="logout_process.php">Logout</a>
           </div>
         </div>
       </div>

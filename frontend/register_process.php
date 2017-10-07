@@ -14,6 +14,9 @@ if ($_POST)
   $stmt = mysqli_prepare($conn, $query);
   mysqli_stmt_execute($stmt);
 
+  header('Location: login.html');
+  exit;
+
 }
 
 ?>
