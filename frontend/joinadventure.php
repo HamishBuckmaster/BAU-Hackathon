@@ -104,7 +104,7 @@ require_login();
                 </label>
                 <div class="pull-right action-buttons">
                   <a href="http://www.jquery2dotnet.com" class="trash"><span class="fa fa-trash fa-2x mr-2"></span></a>
-                  <a href="http://www.jquery2dotnet.com" class="flag"><span class="fa fa-location-arrow fa-2x"></span></a>
+                  <a href="CrimsonCrawl.php" class="flag"><span class="fa fa-location-arrow fa-2x"></span></a>
                 </div>
               </li>
               <li class="list-group-item">
@@ -129,14 +129,6 @@ require_login();
           </div>
         </div>
 
-        <p>
-          <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Link with href
-          </a>
-          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Button with data-target
-          </button>
-        </p>
         <div class="collapse" id="collapseExample">
           <div class="card card-block">
             Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
