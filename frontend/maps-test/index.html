@@ -24,17 +24,15 @@
 
     <body>
         <h3>Google Maps Demo</h3>
+        <select>
+            <option value="all">All</option>
+            <option value="pubs">Pubs</option>
+            <option value="bars">Bars</option>
+            <option value="cafes">Cafes</option>
+            <option value="bottleshops">Bottle Shops</option>
+        </select>
         <div id="map"</div>
         <script>
-            // var customLabel = {
-            //     PUB: {
-            //         label: 'P'
-            //     },
-            //     BAR: {
-            //         label: 'B'
-            //     }
-            // };
-
             // required options:
             // zoom: integer
             // center: lat, lng
@@ -44,15 +42,18 @@
             //   10: city
             //   15: streets
             //   20: buildings
+            var melbourneLocation = {lat: -37.8136, lng: 144.9631};
             function initMap() {
                 var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 5,
-                    center: new google.maps.LatLng(-33.863276, 151.207977)
+                    zoom: 15,
+                    center: melbourneLocation
                 });
                 var infoWindow = new google.maps.InfoWindow;
+                var marker = [];
 
                 // Change this depending on the name of your PHP or XML file
                 downloadUrl('mastertoxml.php', function(data) {
+                    // Read from XML file and store information
                     var xml = data.responseXML;
                     var markers = xml.documentElement.getElementsByTagName('marker');
                     Array.prototype.forEach.call(markers, function(markerElem) {
@@ -70,27 +71,41 @@
                             parseFloat(markerElem.getAttribute('Longitude'))
                         );
                     
+                        // Generate Information Window content
                         var infowincontent = document.createElement('div');
+
+                        // Name of business
                         var strong = document.createElement('strong');
                         strong.textContent = name;
                         infowincontent.appendChild(strong);
                         infowincontent.appendChild(document.createElement('br'));
 
-                        var text = document.createElement('text');
-                        text.textContent = point;
-                        infowincontent.appendChild(text);
-                        //var icon = customLabel[psc] || {};
-                        var marker = new google.maps.Marker({
+                        // Type of business
+                        var businessType = document.createElement('text');
+                        businessType.textContent = psc;
+                        infowincontent.appendChild(businessType);
+                        infowincontent.appendChild(document.createElement('br'));
+
+                        // Business location (lat + long)
+                        var loc = document.createElement('text');
+                        loc.textContent = point;
+                        infowincontent.appendChild(loc);
+
+                        var tempMarker = new google.maps.Marker({
                             map: map,
                             position: point,
-                            //label: icon.label
                         });   
 
-                        marker.addListener('click', function() {
+                        tempMarker.addListener('click', function() {
                             infoWindow.setContent(infowincontent);
-                            infoWindow.open(map, marker);
+                            infoWindow.open(map, tempMarker);
                         });
+
+                        marker.push(tempMarker);
                     });
+
+                    var markerCluster = new MarkerClusterer(map, marker,
+                    {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
                 });
             }
 
@@ -115,7 +130,7 @@
         
         <!-- Google Maps Embed API example -->
         <!-- <iframe width="600" height="450" frameborder="0" style"border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCm-C2PRuf7irTEFTLgXzTD8fzfpXnPgig&q=bars+in+Melbourne" allowfullscreen></iframe> -->
-
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>    
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1e4XhQeYiztIJG3rqxeXA-xx1ZsZxcAI&callback=initMap"></script>
     </body>
 </html>
