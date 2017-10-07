@@ -144,7 +144,7 @@ require_login();
             </div>
           </div>
         </div>
-
+      
         <!-- Section for establishment -->
         <h3 class="mt-3">Establishment Type</h3>
         <div class="form-group">
@@ -168,7 +168,7 @@ require_login();
           <div class="col-xs-3 ml-2 mr-2">
               <div class="form-check">
                 <label class="form-check-label">
-                    <input id="barsbutton" type="checkbox" class="form-check-input" checked="true">
+                    <input id="bottlebutton" type="checkbox" class="form-check-input" checked="true">
                   Bottle Shop
                 </label>
               </div>
@@ -177,16 +177,16 @@ require_login();
         </div>
             </form>
 
-
+          
 
         <!-- Section for establishment -->
         <h3 class="mt-3">Distance Range (Kilometers)</h3>
         <div class="form-group">
             <input type="text" class="form-control" id="distance">
         </div>
-        <a class="btn btn-primary" >
+        <button class="btn btn-primary" onclick="initMap()">
             update
-          </a>
+        </button>
       </form>
 
       <!-- /.container-fluid-->
@@ -251,14 +251,33 @@ require_login();
                   var xml = data.responseXML;
                   var markers = xml.documentElement.getElementsByTagName('customer');
                   Array.prototype.forEach.call(markers, function(markerElem) {
+                      var psc = markerElem.getAttribute('type');
+                      switch (psc) {
+                          case "BAR": {
+                              if (!document.getElementById("barsbutton").checked)
+                                  return;
+                              break;
+                          }
+                          case "PUB":
+                          case "CAFE": {
+                              if (!document.getElementById("cafesbox").checked)
+                                  return;
+                              break;
+                          }
+                          case "BOTTLE SHOP": {
+                              if (!document.getElementById("bottlebutton").checked)
+                                  return;
+                              break;
+                          }
+                      }
+
                       var id = markerElem.getAttribute('id');
                       var name = markerElem.getAttribute('name');
-                      var psc = markerElem.getAttribute('type');
                       var point = new google.maps.LatLng(
                           parseFloat(markerElem.getAttribute('Latitude')),
                           parseFloat(markerElem.getAttribute('Longitude'))
                       );
-
+                  
                       // Generate Information Window content
                       var infowincontent = document.createElement('div');
 
@@ -282,19 +301,36 @@ require_login();
 
                       var brews = markerElem.getElementsByTagName('brew');
                       Array.prototype.forEach.call(brews, function(brewElem) {
-                        var brand = brewElem.getAttribute('brand');
                         var pack = brewElem.getAttribute('pack');
+                        switch (pack) {
+                          case "BOTTLE": {
+                              if (!document.getElementById("bottlesbox").checked)
+                                  return;
+                              break;
+                          }
+                          case "CAN": {
+                              if (!document.getElementById("cansbox").checked)
+                                  return;
+                              break;
+                          }
+                          case "KEG": {
+                              if (!document.getElementById("tapsbox").checked)
+                                  return;
+                              break;
+                          }
+                      }
+                        var brand = brewElem.getAttribute('brand');
 
                         var brewInfo = document.createElement('text');
                         brewInfo.textContent = brand + ", " + pack;
                         infowincontent.appendChild(brewInfo);
                         infowincontent.appendChild(document.createElement('br'));
-                      });
+                      }); 
 
                       var tempMarker = new google.maps.Marker({
                           map: map,
                           position: point,
-                      });
+                      });   
 
                       tempMarker.addListener('click', function() {
                           infoWindow.setContent(infowincontent);
@@ -308,7 +344,7 @@ require_login();
                   {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
               });
           }
-
+          
           function downloadUrl(url,callback) {
               var request = window.ActiveXObject ?
               new ActiveXObject('Microsoft.XMLHTTP') :
@@ -344,7 +380,7 @@ require_login();
       <script src="js/sb-admin-datatables.min.js"></script>
       <!-- <script src="js/sb-admin-charts.min.js"></script> -->
 
-      <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+      <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>    
       <script $(document).ready(function() {async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1e4XhQeYiztIJG3rqxeXA-xx1ZsZxcAI&callback=initMap"});></script>
     </div>
   </div>
