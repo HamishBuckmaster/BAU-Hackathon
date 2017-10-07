@@ -105,7 +105,7 @@ require_login();
       <form>
         <!-- Section for selecting the brew -->
         <h3>Brew:<h3>
-        <select class="form-control" placeholder="Search for...">
+        <select class="form-control" placeholder="Search for..." onchange="initMap()">
             <option value="">Select your brew</option>
             <option value="Carlton Draught">Carlton Draught</option>
             <option value="Victorian Bitter">Victorian Bitter</option>
@@ -182,13 +182,13 @@ require_login();
         <div id="map"></div>
       </div>
 
-      <footer class="sticky-footer">
+      <!-- <footer class="sticky-footer">
         <div class="container">
           <div class="text-center">
             <small>BnB Team - Melbourne Hackathon 2017</small>
           </div>
         </div>
-      </footer>
+      </footer> -->
       <!-- Scroll to Top Button-->
       <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>
@@ -222,10 +222,10 @@ require_login();
           //   10: city
           //   15: streets
           //   20: buildings
-          var melbourneLocation = {lat: -37.8136, lng: 144.9631};
+          var melbourneLocation = {lat: -37.9842205, lng: 145.0647564};
           function initMap() {
               var map = new google.maps.Map(document.getElementById('map'), {
-                  zoom: 15,
+                  zoom: 10,
                   center: melbourneLocation
               });
               var infoWindow = new google.maps.InfoWindow;
@@ -235,17 +235,11 @@ require_login();
               downloadUrl('mastertoxml.php', function(data) {
                   // Read from XML file and store information
                   var xml = data.responseXML;
-                  var markers = xml.documentElement.getElementsByTagName('marker');
+                  var markers = xml.documentElement.getElementsByTagName('customer');
                   Array.prototype.forEach.call(markers, function(markerElem) {
-                      var id = markerElem.getAttribute('CustomerID');
-                      var name = markerElem.getAttribute('POCName');
-                      var state = markerElem.getAttribute('State');
-                      var bde = markerElem.getAttribute('BusinessDevelopmentExecutive');
-                      var sm = markerElem.getAttribute('SalesManager');
-                      var channel = markerElem.getAttribute('Channel');
-                      var psc = markerElem.getAttribute('PrimarySubChannel');
-                      var sizetier = markerElem.getAttribute('SizeTier');
-                      var orderonline = markerElem.getAttribute('Dotheyorderonline');
+                      var id = markerElem.getAttribute('id');
+                      var name = markerElem.getAttribute('name');
+                      var psc = markerElem.getAttribute('type');
                       var point = new google.maps.LatLng(
                           parseFloat(markerElem.getAttribute('Latitude')),
                           parseFloat(markerElem.getAttribute('Longitude'))
@@ -270,6 +264,18 @@ require_login();
                       var loc = document.createElement('text');
                       loc.textContent = point;
                       infowincontent.appendChild(loc);
+                      infowincontent.appendChild(document.createElement('br'));
+
+                      var brews = markerElem.getElementsByTagName('brew');
+                      Array.prototype.forEach.call(brews, function(brewElem) {
+                        var brand = brewElem.getAttribute('brand');
+                        var pack = brewElem.getAttribute('pack');
+
+                        var brewInfo = document.createElement('text');
+                        brewInfo.textContent = brand + ", " + pack;
+                        infowincontent.appendChild(brewInfo);
+                        infowincontent.appendChild(document.createElement('br'));
+                      }); 
 
                       var tempMarker = new google.maps.Marker({
                           map: map,
