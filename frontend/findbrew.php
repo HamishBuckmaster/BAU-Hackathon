@@ -104,11 +104,11 @@ require_login();
       <div class="card-header"> <h1> Find a Brew <h1> </div>
       <form>
         <!-- Section for selecting the brew -->
-        <h3>Brew:<h3>
+        <h3>Brew:</h3>
         <select class="form-control" placeholder="Search for..." onchange="initMap()">
             <option value="">Select your brew</option>
             <option value="Carlton Draught">Carlton Draught</option>
-            <option value="Victorian Bitter">Victorian Bitter</option>
+            <option value="Victoria Bitter">Victoria Bitter</option>
             <option value="Carona">Carona</option>
             <option value="Melbourne Bitter">Melbourne Bitter</option>
             <option value="Pure Blonde">Pure Blonde</option>
@@ -165,8 +165,19 @@ require_login();
                 </label>
               </div>
             </div>
+          <div class="col-xs-3 ml-2 mr-2">
+              <div class="form-check">
+                <label class="form-check-label">
+                    <input id="barsbutton" type="checkbox" class="form-check-input" checked="true">
+                  Bottle Shop
+                </label>
+              </div>
+            </div>
           </div>
         </div>
+            </form>
+
+          
 
         <!-- Section for establishment -->
         <h3 class="mt-3">Distance Range (Kilometers)</h3>
@@ -182,13 +193,13 @@ require_login();
         <div id="map"></div>
       </div>
 
-      <!-- <footer class="sticky-footer">
+      <footer class="sticky-footer">
         <div class="container">
           <div class="text-center">
             <small>BnB Team - Melbourne Hackathon 2017</small>
           </div>
         </div>
-      </footer> -->
+      </footer>
       <!-- Scroll to Top Button-->
       <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>
