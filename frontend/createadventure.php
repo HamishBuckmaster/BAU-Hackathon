@@ -29,7 +29,7 @@ require_login();
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.php">Beer n Buddies</a>
+    <a class="navbar-brand" href="index.php">Beer 'n' Buddies</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -89,78 +89,50 @@ require_login();
     </nav>
     <div class="content-wrapper">
       <div class="container-fluid">
-        <div class="card-header"> <h1> Create a Adventure </h1> </div>
-        <!-- Icon Cards-->
-        <div class="row">
-          <div class="col-xl-6 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-comments"></i>
-                </div>
-                <div class="mr-5">Search for your favourite brew!</div>
+        <div class="card-header"> <h1> Create an Adventure </h1> </div>
+       <form>
+
+        <!-- Section for selecting the brew -->
+        <h3>Brew required:</h3>
+      <select class="form-control" placeholder="Search for...">
+            <option value="">Select your brew</option>
+            <option value="Carlton Draught">Carlton Draught</option>
+            <option value="Victorian Bitter">Victoria Bitter</option>
+            <option value="Carona">Carona</option>
+            <option value="Melbourne Bitter">Melbourne Bitter</option>
+            <option value="Pure Blonde">Pure Blonde</option>
+          </select>
+        <div class="form-group">
+          <div class="row mt-3 ml-1">
+            <div class="col-xs-3 mr-2">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input id="bottlesbox" type="checkbox" class="form-check-input" checked="true">
+                  Any
+                </label>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-6 col-sm-6 mb-3">
-            <div class="card text-white bg-warning o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-list"></i>
-                </div>
-                <div class="mr-5">Check out your favourites</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xl-6 col-sm-6 mb-3">
-            <div class="card text-white bg-success o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">Join a pub crawl</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
+      </form>
+            <h3 class="mt-3">Distance from location (Kilometers)</h3>
+             <div class="form-group">
+            <input type="text" class="form-control" id="distance">
           </div>
-          <div class="col-xl-6 col-sm-6 mb-3">
-            <div class="card text-white bg-danger o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fa fa-fw fa-support"></i>
-                </div>
-                <div class="mr-5">Create a Adventure</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
+        </form>
+         <h3 class="mt-3">Number of stops</h3>
+             <div class="form-group">
+            <input type="text" class="form-control" id="distance">
           </div>
-        </div>
-      </div>
-      <!-- /.container-fluid-->
+        </form>
+         <h3 class="mt-3">Adventure starting time</h3>
+             <div class="form-group">
+            <input type="text" class="form-control" id="distance">
+          </div>
+          <button class="btn btn-lg btn-primary">Add</button>
+        </form>
+
+
       <!-- /.content-wrapper-->
       <footer class="sticky-footer">
         <div class="container">

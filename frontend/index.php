@@ -29,7 +29,7 @@ require_login();
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.php">Beer n Buddies</a>
+    <a class="navbar-brand" href="index.php">Beer 'n' Buddies</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -120,7 +120,7 @@ require_login();
         </div>
         <div class="row">
           <div class="col-xl-6 col-sm-6 mb-3">
-            <a href="joinpubcrawl.php" style="text-decoration:none">
+            <a href="joinadventure.php" style="text-decoration:none">
               <div class="card text-white bg-success o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
@@ -132,13 +132,13 @@ require_login();
             </a>
           </div>
           <div class="col-xl-6 col-sm-6 mb-3">
-            <a href="createpubcrawl.php" style="text-decoration:none">
+            <a href="createadventure.php" style="text-decoration:none">
               <div class="card text-white bg-danger o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
                     <i class="fa fa-fw fa-support"></i>
                   </div>
-                  <div class="mr-5">Create a Adventure</div>
+                  <div class="mr-5">Create an Adventure</div>
                 </div>
               </div>
             </a>
