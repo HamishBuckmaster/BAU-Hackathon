@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Maps API Test</title>
+
+        <style>
+            /* Always set the map height explicitly to define the size of the div
+             * element that contains the map. */
+            #map {
+              height: 100%;
+              width: 100%;
+              background-color: grey;
+            }
+            /* Optional: Makes the sample page fill the window. */
+            html, body {
+              height: 100%;
+              margin: 0;
+              padding: 0;
+            }
+          </style>      
+
+    </head>
+
+    <body>
+        <h3>Google Maps Demo</h3>
+        <div id="map"</div>
+        <script>
+            // var customLabel = {
+            //     PUB: {
+            //         label: 'P'
+            //     },
+            //     BAR: {
+            //         label: 'B'
+            //     }
+            // };
+
+            // required options:
+            // zoom: integer
+            // center: lat, lng
+            // zoom levels:
+            //   1: world
+            //   5: landmass/continent
+            //   10: city
+            //   15: streets
+            //   20: buildings
+            function initMap() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 5,
+                    center: new google.maps.LatLng(-33.863276, 151.207977)
+                });
+                var infoWindow = new google.maps.InfoWindow;
+
+                // Change this depending on the name of your PHP or XML file
+                downloadUrl('mastertoxml.php', function(data) {
+                    var xml = data.responseXML;
+                    var markers = xml.documentElement.getElementsByTagName('marker');
+                    Array.prototype.forEach.call(markers, function(markerElem) {
+                        var id = markerElem.getAttribute('CustomerID');
+                        var name = markerElem.getAttribute('POCName');
+                        var state = markerElem.getAttribute('State');
+                        var bde = markerElem.getAttribute('BusinessDevelopmentExecutive');
+                        var sm = markerElem.getAttribute('SalesManager');
+                        var channel = markerElem.getAttribute('Channel');
+                        var psc = markerElem.getAttribute('PrimarySubChannel');
+                        var sizetier = markerElem.getAttribute('SizeTier');
+                        var orderonline = markerElem.getAttribute('Dotheyorderonline');
+                        var point = new google.maps.LatLng(
+                            parseFloat(markerElem.getAttribute('Latitude')),
+                            parseFloat(markerElem.getAttribute('Longitude'))
+                        );
+                    
+                        var infowincontent = document.createElement('div');
+                        var strong = document.createElement('strong');
+                        strong.textContent = name;
+                        infowincontent.appendChild(strong);
+                        infowincontent.appendChild(document.createElement('br'));
+
+                        var text = document.createElement('text');
+                        text.textContent = point;
+                        infowincontent.appendChild(text);
+                        //var icon = customLabel[psc] || {};
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: point,
+                            //label: icon.label
+                        });   
+
+                        marker.addListener('click', function() {
+                            infoWindow.setContent(infowincontent);
+                            infoWindow.open(map, marker);
+                        });
+                    });
+                });
+            }
+
+            function downloadUrl(url,callback) {
+                var request = window.ActiveXObject ?
+                new ActiveXObject('Microsoft.XMLHTTP') :
+                new XMLHttpRequest;
+
+                request.onreadystatechange = function() {
+                    if (request.readyState == 4) {
+                        request.onreadystatechange = doNothing;
+                        callback(request, request.status);
+                    }
+                };
+
+                request.open('GET', url, true);
+                request.send(null);
+            }
+
+            function doNothing() {}
+        </script>
+        
+        <!-- Google Maps Embed API example -->
+        <!-- <iframe width="600" height="450" frameborder="0" style"border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCm-C2PRuf7irTEFTLgXzTD8fzfpXnPgig&q=bars+in+Melbourne" allowfullscreen></iframe> -->
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1e4XhQeYiztIJG3rqxeXA-xx1ZsZxcAI&callback=initMap"></script>
+    </body>
+</html>
