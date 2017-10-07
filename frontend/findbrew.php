@@ -104,7 +104,7 @@ require_login();
       <div class="card-header"> <h1> Find a Brew <h1> </div>
       <form>
         <!-- Section for selecting the brew -->
-        <h3>Brew:<h3>
+        <h3>Brew:</h3>
         <select class="form-control" placeholder="Search for...">
             <option value="">Select your brew</option>
             <option value="Carlton Draught">Carlton Draught</option>

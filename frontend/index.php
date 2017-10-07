@@ -138,7 +138,7 @@ require_login();
                   <div class="card-body-icon">
                     <i class="fa fa-fw fa-support"></i>
                   </div>
-                  <div class="mr-5">Create a Adventure</div>
+                  <div class="mr-5">Create an Adventure</div>
                 </div>
               </div>
             </a>
