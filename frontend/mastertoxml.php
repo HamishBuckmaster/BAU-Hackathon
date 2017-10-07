@@ -19,7 +19,7 @@ if (!$db_selected) {
 }
 
 // Select all the rows in the table
-$query = "SELECT * FROM db.`2 master data` LIMIT 100";
+$query = "SELECT * FROM db.`2 master data` LIMIT 250";
 $result = mysqli_query($connection, $query);
 if (!$result) {
     die('Invalid query: ' . mysqli_error($connection));

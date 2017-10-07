@@ -29,9 +29,10 @@ require_login();
     /* Always set the map height explicitly to define the size of the div
       * element that contains the map. */
     #map {
+      min-height: 500px;
       height: 400px;
       width: 100%;
-      position: absolute;
+
       background-color: grey;
     }
   </style>
@@ -101,7 +102,7 @@ require_login();
 
   <div class="content-wrapper">
     <div class="container-fluid">
-      <div class="card-header"> <h1> Find a Brew <h1> </div>
+      <div class="card-header"> <h1> Find a Brew </h1> </div>
       <form>
         <!-- Section for selecting the brew -->
         <h3>Brew:</h3>
@@ -144,7 +145,7 @@ require_login();
             </div>
           </div>
         </div>
-      
+
         <!-- Section for establishment -->
         <h3 class="mt-3">Establishment Type</h3>
         <div class="form-group">
@@ -179,22 +180,26 @@ require_login();
         </div>
             </form>
 
-          
+
 
         <!-- Section for establishment -->
         <h3 class="mt-3">Distance Range (Kilometers)</h3>
         <div class="form-group">
             <input type="text" class="form-control" id="distance">
         </div>
+        <center>
+
+        </center>
         <button class="btn btn-primary" onclick="initMap()">
-            update
+            Update
         </button>
+      </center>
       </form>
 
       <!-- /.container-fluid-->
       <!-- /.content-wrapper-->
 
-      <div class="container h-100 w-100">
+      <div class="container h-100 w-100 p-2">
         <div class="embed-responsive-item" id="map"></div>
       </div>
 
@@ -279,7 +284,7 @@ require_login();
                           parseFloat(markerElem.getAttribute('Latitude')),
                           parseFloat(markerElem.getAttribute('Longitude'))
                       );
-                  
+
                       // Generate Information Window content
                       var infowincontent = document.createElement('div');
 
@@ -327,12 +332,12 @@ require_login();
                         brewInfo.textContent = brand + ", " + pack;
                         infowincontent.appendChild(brewInfo);
                         infowincontent.appendChild(document.createElement('br'));
-                      }); 
+                      });
 
                       var tempMarker = new google.maps.Marker({
                           map: map,
                           position: point,
-                      });   
+                      });
 
                       tempMarker.addListener('click', function() {
                           infoWindow.setContent(infowincontent);
@@ -346,7 +351,7 @@ require_login();
                   {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
               });
           }
-          
+
           function downloadUrl(url,callback) {
               var request = window.ActiveXObject ?
               new ActiveXObject('Microsoft.XMLHTTP') :
@@ -382,7 +387,7 @@ require_login();
       <script src="js/sb-admin-datatables.min.js"></script>
       <!-- <script src="js/sb-admin-charts.min.js"></script> -->
 
-      <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>    
+      <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
       <script $(document).ready(function() {async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1e4XhQeYiztIJG3rqxeXA-xx1ZsZxcAI&callback=initMap"});></script>
     </div>
   </div>
