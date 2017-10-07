@@ -96,7 +96,7 @@ require_login();
       <h3>Add New Favourite</h3>
       <!-- Section for selecting the brew -->
       <h4 class="mt-3">Brew:<h4>
-      <select class="form-control" placeholder="Search for...">
+      <select class="form-control" placeholder="Search for..." id="brew_name">
           <option value="">Select your brew</option>
           <option value="Carlton Draught">Carlton Draught</option>
           <option value="Victorian Bitter">Victorian Bitter</option>
@@ -107,34 +107,36 @@ require_login();
 
       <!-- Section for checking the bootle, can, tap -->
       <h4 class="mt-3">Delivery</h4>
-      <div class="form-group">
-        <div class="row mt-3 ml-1">
-          <div class="col-xs-3 mr-2">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input id="bottlesbox" type="checkbox" class="form-check-input" checked="true">
-                Bottles
-              </label>
-            </div>
-          </div>
-          <div class="col-xs-3 ml-2 mr-2">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input id="cansbox" type="checkbox" class="form-check-input" checked="true">
-                Cans
-              </label>
-            </div>
-          </div>
-          <div class="col-xs-3 ml-2 mr-2">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input id="tapsbox" type="checkbox" class="form-check-input" checked="true">
-                Tap
-              </label>
-            </div>
-          </div>
-      </div>
-      <button class="btn btn-lg btn-primary">Add</button>
+		<form action="add_favourite_process.php" method="POST">
+			<div class="form-group">
+			<div class="row mt-3 ml-1">
+			  <div class="col-xs-3 mr-2">
+				<div class="form-check">
+				  <label class="form-check-label">
+					<input id="bottlesbox" type="checkbox" class="form-check-input" checked="true" name="bottle_chk">
+					Bottles
+				  </label>
+				</div>
+			  </div>
+			  <div class="col-xs-3 ml-2 mr-2">
+				<div class="form-check">
+				  <label class="form-check-label">
+					<input id="cansbox" type="checkbox" class="form-check-input" checked="true" name="can_chk">
+					Cans
+				  </label>
+				</div>
+			  </div>
+			  <div class="col-xs-3 ml-2 mr-2">
+				<div class="form-check">
+				  <label class="form-check-label">
+					<input id="tapsbox" type="checkbox" class="form-check-input" checked="true" name="keg_chk">
+					Tap
+				  </label>
+				</div>
+			  </div>
+			</div>
+			<input class="btn btn-primary btn-block" id="submit" type="submit" value="Add"></input>
+		</form>
 
     <!-- Managing existing favourite brews -->
     <h3 class="mt-5">Current Favourites</h3>
