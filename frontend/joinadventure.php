@@ -93,14 +93,14 @@ require_login();
         <div class="card-header"> <h1> Join a Adventure </h1> </div>
         
         <!-- Managing existing favourite brews -->
-        <h3 class="mt-5">Current Favourites</h3>
+        <h3 class="mt-2">Current Favourites</h3>
 
         <div class="panel panel-primary mt-2">
           <div class="panel-body">
             <ul class="list-group">
               <li class="list-group-item">
                 <label class="mt-1">
-                  <h5>Victorian Bitter</h5>
+                  <h5>Crimson Crawl</h5>
                 </label>
                 <div class="pull-right action-buttons">
                   <a href="http://www.jquery2dotnet.com" class="trash"><span class="fa fa-trash fa-2x mr-2"></span></a>
@@ -109,7 +109,7 @@ require_login();
               </li>
               <li class="list-group-item">
                 <label class="mt-1">
-                  <h5>Corona</h5>
+                  <h5>5 Pub Path</h5>
                 </label>
                 <div class="pull-right action-buttons">
                   <a href="http://www.jquery2dotnet.com" class="trash"><span class="fa fa-trash fa-2x mr-2"></span></a>
@@ -118,7 +118,7 @@ require_login();
               </li>
               <li class="list-group-item">
                 <label class="mt-1">
-                  <h5>Carlton Dry</h5>
+                  <h5>Ultimate Crawl</h5>
                 </label>
                 <div class="pull-right action-buttons">
                   <a href="http://www.jquery2dotnet.com" class="trash"><span class="fa fa-trash fa-2x mr-2"></span></a>
@@ -128,6 +128,21 @@ require_login();
             </ul>
           </div>
         </div>
+
+        <p>
+          <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Link with href
+          </a>
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Button with data-target
+          </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-block">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+          </div>
+        </div>
+        
         <!-- /.container-fluid-->
         <!-- /.content-wrapper-->
         <footer class="sticky-footer">
@@ -176,7 +191,7 @@ require_login();
         <script src="js/sb-admin-datatables.min.js"></script>
         <script src="js/sb-admin-charts.min.js"></script>
       </div>
-  </div>
-</body>
+    </div>
+  </body>
 
-</html>
+  </html>
