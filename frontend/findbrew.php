@@ -144,7 +144,7 @@ require_login();
             </div>
           </div>
         </div>
-      
+
         <!-- Section for establishment -->
         <h3 class="mt-3">Establishment Type</h3>
         <div class="form-group">
@@ -177,20 +177,23 @@ require_login();
         </div>
             </form>
 
-          
+
 
         <!-- Section for establishment -->
         <h3 class="mt-3">Distance Range (Kilometers)</h3>
         <div class="form-group">
             <input type="text" class="form-control" id="distance">
         </div>
+        <a class="btn btn-primary" >
+            update
+          </a>
       </form>
 
       <!-- /.container-fluid-->
       <!-- /.content-wrapper-->
 
       <div class="container h-100 w-100">
-        <div id="map"></div>
+        <div class="embed-responsive-item" id="map"></div>
       </div>
 
       <footer class="sticky-footer">
@@ -255,7 +258,7 @@ require_login();
                           parseFloat(markerElem.getAttribute('Latitude')),
                           parseFloat(markerElem.getAttribute('Longitude'))
                       );
-                  
+
                       // Generate Information Window content
                       var infowincontent = document.createElement('div');
 
@@ -286,12 +289,12 @@ require_login();
                         brewInfo.textContent = brand + ", " + pack;
                         infowincontent.appendChild(brewInfo);
                         infowincontent.appendChild(document.createElement('br'));
-                      }); 
+                      });
 
                       var tempMarker = new google.maps.Marker({
                           map: map,
                           position: point,
-                      });   
+                      });
 
                       tempMarker.addListener('click', function() {
                           infoWindow.setContent(infowincontent);
@@ -305,7 +308,7 @@ require_login();
                   {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
               });
           }
-          
+
           function downloadUrl(url,callback) {
               var request = window.ActiveXObject ?
               new ActiveXObject('Microsoft.XMLHTTP') :
@@ -341,7 +344,7 @@ require_login();
       <script src="js/sb-admin-datatables.min.js"></script>
       <!-- <script src="js/sb-admin-charts.min.js"></script> -->
 
-      <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>    
+      <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
       <script $(document).ready(function() {async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1e4XhQeYiztIJG3rqxeXA-xx1ZsZxcAI&callback=initMap"});></script>
     </div>
   </div>
