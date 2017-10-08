@@ -15,7 +15,7 @@ require_login();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>BnB - Join Pub Crawl</title>
+  <title>BnB - Join Journey</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -28,7 +28,7 @@ require_login();
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index.php">Beer 'n' Buddies</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -56,13 +56,13 @@ require_login();
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="joinadventure.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Join Adventure</span>
+            <span class="nav-link-text">Join Journey</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="createadventure.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Create Adventure</span>
+            <span class="nav-link-text">Create Journey</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
@@ -90,39 +90,18 @@ require_login();
 
     <div class="content-wrapper">
       <div class="container-fluid">
-        <div class="card-header"> <h1> Join a Adventure </h1> </div>
+        <div class="card-header"> <h1> Join a Journey </h1> </div>
         
-        <!-- Managing existing favourite brews -->
-        <h3 class="mt-2">Current Favourites</h3>
-
         <div class="panel panel-primary mt-2">
           <div class="panel-body">
             <ul class="list-group">
               <li class="list-group-item">
                 <label class="mt-1">
-                  <h5>Crimson Crawl</h5>
+                  <h5>Fun Fiesta</h5>
                 </label>
                 <div class="pull-right action-buttons">
                   <a href="http://www.jquery2dotnet.com" class="trash"><span class="fa fa-trash fa-2x mr-2"></span></a>
                   <a href="CrimsonCrawl.php" class="flag"><span class="fa fa-location-arrow fa-2x"></span></a>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <label class="mt-1">
-                  <h5>5 Pub Path</h5>
-                </label>
-                <div class="pull-right action-buttons">
-                  <a href="http://www.jquery2dotnet.com" class="trash"><span class="fa fa-trash fa-2x mr-2"></span></a>
-                  <a href="http://www.jquery2dotnet.com" class="flag"><span class="fa fa-location-arrow fa-2x"></span></a>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <label class="mt-1">
-                  <h5>Ultimate Crawl</h5>
-                </label>
-                <div class="pull-right action-buttons">
-                  <a href="http://www.jquery2dotnet.com" class="trash"><span class="fa fa-trash fa-2x mr-2"></span></a>
-                  <a href="http://www.jquery2dotnet.com" class="flag"><span class="fa fa-location-arrow fa-2x"></span></a>
                 </div>
               </li>
             </ul>

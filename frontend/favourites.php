@@ -56,13 +56,13 @@ require_login();
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="joinadventure.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Join Adventure</span>
+            <span class="nav-link-text">Join Journey</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="createadventure.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Create Adventure</span>
+            <span class="nav-link-text">Create Journey</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
@@ -145,7 +145,7 @@ require_login();
             <ul class="list-group">
               <li class="list-group-item">
                 <label class="mt-1">
-                  <h5>Victorian Bitter</h5>
+                  <h5>Victoria Bitter</h5>
                 </label>
                 <div class="pull-right action-buttons">
                   <a href="http://www.jquery2dotnet.com" class="trash"><span class="fa fa-trash fa-2x mr-2"></span></a>

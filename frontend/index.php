@@ -56,13 +56,13 @@ require_login();
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="joinadventure.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Join Adventure</span>
+            <span class="nav-link-text">Join Journey</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="createadventure.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Create Adventure</span>
+            <span class="nav-link-text">Create Journey</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
@@ -90,7 +90,7 @@ require_login();
 
     <div class="content-wrapper">
       <div class="container-fluid">
-        <div class="card-header"> <h1> Welcome INSERT NAME! </h1> </div>
+        <div class="card-header"> <h1> Welcome Jes! </h1> </div>
         <!-- Icon Cards-->
         <div class="row">
           <div class="col-xl-6 col-sm-6 mb-3">
@@ -100,7 +100,7 @@ require_login();
                   <div class="card-body-icon">
                     <i class="fa fa-fw fa-beer"></i>
                   </div>
-                  <div class="mr-5">Find a brew</div>
+                  <div class="mr-5">Find a Brew</div>
                 </div>
               </div>
             </a>
@@ -112,7 +112,7 @@ require_login();
                   <div class="card-body-icon">
                     <i class="fa fa-fw fa-heart"></i>
                   </div>
-                  <div class="mr-5">Check out your favourites</div>
+                  <div class="mr-5">Manage Favourites</div>
                 </div>
               </div>
             </a>
@@ -126,7 +126,7 @@ require_login();
                   <div class="card-body-icon">
                     <i class="fa fa-fw fa-group"></i>
                   </div>
-                  <div class="mr-5">Join an Adventure</div>
+                  <div class="mr-5">Join a Journey</div>
                 </div>
               </div>
             </a>
@@ -138,7 +138,7 @@ require_login();
                   <div class="card-body-icon">
                     <i class="fa fa-fw fa-road"></i>
                   </div>
-                  <div class="mr-5">Create an Adventure</div>
+                  <div class="mr-5">Create a Journey</div>
                 </div>
               </div>
             </a>
