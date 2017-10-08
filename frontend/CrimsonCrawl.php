@@ -40,7 +40,7 @@ require_login();
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.php">Beer n Buddies</a>
+    <a class="navbar-brand" href="index.php">Beer 'n' Buddies</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -64,19 +64,19 @@ require_login();
             <span class="nav-link-text">View Favourites</span>
           </a>
         </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="joinadventure.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Join Adventure</span>
+            <span class="nav-link-text">Join Journey</span>
           </a>
         </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="createadventure.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Create Adventure</span>
+            <span class="nav-link-text">Create Journey</span>
           </a>
         </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link"  href="logout_process.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Logout</span>
@@ -94,18 +94,17 @@ require_login();
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
   <div class="content-wrapper">
     <div class="container-fluid">
-      <div class="card-header"> <h1> Crimson Crawl <h1> </div>
+      <div class="card-header"> <h1> Fun Fiesta <h1> </div>
       <form>
         <!-- Section for selecting the brew -->
         <h3>Pubs: Freezing Tigers, Green Deer, Hollow Star, Keen Ox, Melting Pie, Nice Pie, Open Bison</h3>        
-        <h3 class="mt-3">Promos: Discount code 10% off for next crawl</h3>
         <img src="images/CrimsonCrawl.PNG" style="width:70%;height:40%;">
 
       <!-- Bootstrap core JavaScript-->

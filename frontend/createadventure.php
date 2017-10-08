@@ -15,7 +15,7 @@ require_login();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>BnB - Create Pub Crawl</title>
+  <title>BnB - Create Journey</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -56,13 +56,13 @@ require_login();
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="joinadventure.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Join Adventure</span>
+            <span class="nav-link-text">Join Journey</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="createadventure.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Create Adventure</span>
+            <span class="nav-link-text">Create Journey</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
@@ -89,97 +89,98 @@ require_login();
     </nav>
     <div class="content-wrapper">
       <div class="container-fluid">
-        <div class="card-header"> <h1> Create an Adventure </h1> </div>
-       <form>
+        <div class="card-header"> <h1> Create a Journey </h1> </div>
+        <form>
 
-        <!-- Section for selecting the brew -->
-        <h3>Brew required:</h3>
-      <select class="form-control" placeholder="Search for...">
-            <option value="">Select your brew</option>
-            <option value="Carlton Draught">Carlton Draught</option>
-            <option value="Victorian Bitter">Victoria Bitter</option>
-            <option value="Carona">Carona</option>
-            <option value="Melbourne Bitter">Melbourne Bitter</option>
-            <option value="Pure Blonde">Pure Blonde</option>
-          </select>
+          <!-- Section for selecting the brew -->
+        <h3 class="mt-3">Journey Name</h3>
         <div class="form-group">
-          <div class="row mt-3 ml-1">
-            <div class="col-xs-3 mr-2">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input id="bottlesbox" type="checkbox" class="form-check-input" checked="true">
-                  Any
-                </label>
-              </div>
-            </div>
-          </div>
+          <input type="text" class="form-control" id="distance">
         </div>
-      </form>
-            <h3 class="mt-3">Distance from location (Kilometers)</h3>
-             <div class="form-group">
-            <input type="text" class="form-control" id="distance">
-          </div>
-        </form>
-         <h3 class="mt-3">Number of stops</h3>
-             <div class="form-group">
-            <input type="text" class="form-control" id="distance">
-          </div>
-        </form>
-         <h3 class="mt-3">Adventure starting time</h3>
-             <div class="form-group">
-            <input type="text" class="form-control" id="distance">
-          </div>
-          <a class="btn btn-primary"  href="joinadventure.php">Add</a>
-        </form>
 
-
-      <!-- /.content-wrapper-->
-      <footer class="sticky-footer">
-        <div class="container">
-          <div class="text-center">
-            <small>BnB Team - Melbourne Hackathon 2017</small>
-          </div>
-        </div>
-      </footer>
-      <!-- Scroll to Top Button-->
-      <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fa fa-angle-up"></i>
-      </a>
-      <!-- Logout Modal-->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
-              </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              <a class="btn btn-primary"  href="logout_process.php">Logout</a>
+      <h3>Brew required:</h3>
+      <select class="form-control" placeholder="Search for...">
+        <option value="">Select your brew</option>
+        <option value="Carlton Draught">Carlton Draught</option>
+        <option value="Victorian Bitter">Victoria Bitter</option>
+        <option value="Carona">Carona</option>
+        <option value="Melbourne Bitter">Melbourne Bitter</option>
+        <option value="Pure Blonde">Pure Blonde</option>
+      </select>
+      <div class="form-group">
+        <div class="row mt-3 ml-1">
+          <div class="col-xs-3 mr-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input id="bottlesbox" type="checkbox" class="form-check-input" checked="true">
+                Any
+              </label>
             </div>
           </div>
         </div>
       </div>
-      <!-- Bootstrap core JavaScript-->
-      <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="vendor/popper/popper.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-      <!-- Core plugin JavaScript-->
-      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-      <!-- Page level plugin JavaScript-->
-      <script src="vendor/chart.js/Chart.min.js"></script>
-      <script src="vendor/datatables/jquery.dataTables.js"></script>
-      <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-      <!-- Custom scripts for all pages-->
-      <script src="js/sb-admin.min.js"></script>
-      <!-- Custom scripts for this page-->
-      <script src="js/sb-admin-datatables.min.js"></script>
-      <script src="js/sb-admin-charts.min.js"></script>
+    </form>
+    <h3 class="mt-3">Distance from location (Kilometers)</h3>
+    <div class="form-group">
+      <input type="text" class="form-control" id="distance">
+    </div>
+  </form>
+  <h3 class="mt-3">Number of stops</h3>
+  <div class="form-group">
+    <input type="text" class="form-control" id="distance">
+  </div>
+
+  <form>
+        <a class="btn btn-primary"  href="joinadventure.php">Add</a>
+  </form>
+
+  <!-- /.content-wrapper-->
+  <footer class="sticky-footer">
+    <div class="container">
+      <div class="text-center">
+        <small>BnB Team - Melbourne Hackathon 2017</small>
+      </div>
+    </div>
+  </footer>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-angle-up"></i>
+  </a>
+  <!-- Logout Modal-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary"  href="logout_process.php">Logout</a>
+        </div>
+      </div>
     </div>
   </div>
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/popper/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+  <!-- Custom scripts for this page-->
+  <script src="js/sb-admin-datatables.min.js"></script>
+  <script src="js/sb-admin-charts.min.js"></script>
+</div>
+</div>
 </body>
 
 </html>
